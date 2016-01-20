@@ -25,9 +25,7 @@ public class ExempleComposite {
         Leaf feuille4 = new Leaf(4);
         Composite sous_arbre = new Plus(feuille2, feuille3);
         Composite arbre = new Multiplie(sous_arbre, feuille4);
-        System.out.println(arbre.toString());
-        
-        System.out.println("Total: " + arbre.operation());
+        System.out.println(arbre.toString() + "= " + arbre.operation());
     }
     
 }
