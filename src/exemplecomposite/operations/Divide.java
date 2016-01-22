@@ -7,26 +7,32 @@
 package exemplecomposite.operations;
 
 import exemplecomposite.Component;
-import exemplecomposite.Composite;
+import exemplecomposite.Tree;
+import exemplecomposite.visiteur.Visitor;
 
 /**
  *
  * @author me
  */
-public class Moins extends Composite {
+public class Divide extends Tree {
 
-    public Moins(Component gauche, Component droite) {
+    public Divide(Component gauche, Component droite) {
         super(gauche, droite);
     }
 
     @Override
     public int operation() {
-        return this.gauche.operation() - this.droite.operation();
+        return this.gauche.operation() / this.droite.operation();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 
     @Override
     public String toString() {
-        return " (" + this.gauche + " - " + this.droite + ") ";
+        return " (" + this.gauche + " / " + this.droite + ") ";
     }
     
 }

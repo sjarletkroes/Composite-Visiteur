@@ -7,21 +7,27 @@
 package exemplecomposite.operations;
 
 import exemplecomposite.Component;
-import exemplecomposite.Composite;
+import exemplecomposite.Tree;
+import exemplecomposite.visiteur.Visitor;
 
 /**
  *
  * @author me
  */
-public class Multiplie extends Composite {
+public class Multiply extends Tree {
 
-    public Multiplie(Component gauche, Component droite) {
+    public Multiply(Component gauche, Component droite) {
         super(gauche, droite);
     }
 
     @Override
     public int operation() {
         return this.gauche.operation() * this.droite.operation();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 
     @Override

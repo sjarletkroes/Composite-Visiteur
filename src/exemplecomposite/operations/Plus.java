@@ -7,13 +7,14 @@
 package exemplecomposite.operations;
 
 import exemplecomposite.Component;
-import exemplecomposite.Composite;
+import exemplecomposite.Tree;
+import exemplecomposite.visiteur.Visitor;
 
 /**
  *
  * @author me
  */
-public class Plus extends Composite {
+public class Plus extends Tree {
 
     public Plus(Component gauche, Component droite) {
         super(gauche, droite);
@@ -22,6 +23,11 @@ public class Plus extends Composite {
     @Override
     public int operation() {
         return this.gauche.operation() + this.droite.operation();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 
     @Override

@@ -6,9 +6,11 @@
 
 package exemplecomposite;
 
+import exemplecomposite.visiteur.Visitor;
+
 public class Leaf extends Component {
 
-    private int value;
+    public int value;
     
     Leaf(int value) {
         this.value = value;
@@ -20,8 +22,13 @@ public class Leaf extends Component {
         return this.value;
     }
 
+    public void accept(Visitor v) {
+        v.visit(this);
+    }
+
     @Override
     public String toString() {
         return " " + value + " ";
     }
+    
 }

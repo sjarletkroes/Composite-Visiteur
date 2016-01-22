@@ -6,7 +6,10 @@
 
 package exemplecomposite;
 
+import exemplecomposite.visiteur.Visitor;
+
 public abstract class Component {
 
     public abstract int operation();
+    public abstract void accept(Visitor v);
 }
